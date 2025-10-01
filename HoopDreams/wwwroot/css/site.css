@@ -152,29 +152,333 @@ h1, h2 {
 
 .hero-section {
     position: relative;
-    height: 40vh;
+    height: 100vh;
     width: 100%;
     overflow: hidden;
+    background: linear-gradient(135deg, #f5f1e8, #e8dcc0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.hero-image {
+.animated-basketball-cover {
+    position: relative;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f5f1e8;
 }
 
-.slogan-container {
+/* Basketball Hoop */
+.basketball-hoop {
     position: absolute;
+    left: 15%;
     top: 20%;
+    z-index: 2;
+}
+
+.backboard {
+    width: 80px;
+    height: 60px;
+    border: 4px solid #8B4513;
+    border-radius: 8px;
+    position: relative;
+    background: transparent;
+}
+
+.backboard-inner {
+    width: 60px;
+    height: 40px;
+    border: 3px solid #8B4513;
+    border-radius: 4px;
+    position: absolute;
+    top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%); /* centers it */
-    color: white;
-    text-shadow: 1px 1px 4px rgba(0,0,0,0.7); /* makes text readable on image */
-    text-align: inherit;
-    z-index: 1;
+    transform: translate(-50%, -50%);
+}
+
+.rim {
+    width: 60px;
+    height: 4px;
+    background: #FF8C00;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
+.net {
+    position: absolute;
+    top: 104px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 30px;
+}
+
+.net-line {
+    position: absolute;
+    width: 2px;
+    height: 30px;
+    background: #8B4513;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: netSway 3s ease-in-out infinite;
+}
+
+.net-line:nth-child(1) { left: 20%; animation-delay: 0s; }
+.net-line:nth-child(2) { left: 40%; animation-delay: 0.2s; }
+.net-line:nth-child(3) { left: 60%; animation-delay: 0.4s; }
+.net-line:nth-child(4) { left: 80%; animation-delay: 0.6s; }
+
+.pole {
+    width: 6px;
+    height: 200px;
+    background: #8B4513;
+    position: absolute;
+    top: 130px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* Basketball */
+.basketball {
+    position: absolute;
+    right: 20%;
+    bottom: 25%;
+    width: 60px;
+    height: 60px;
+    background: #FF8C00;
+    border-radius: 50%;
+    z-index: 3;
+    animation: basketballBounce 2s ease-in-out infinite;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.basketball-seam {
+    position: absolute;
     width: 100%;
+    height: 2px;
+    background: #8B4513;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.basketball-seam:nth-child(1) {
+    transform: translateY(-50%) rotate(0deg);
+}
+
+.basketball-seam:nth-child(2) {
+    transform: translateY(-50%) rotate(60deg);
+}
+
+.basketball-seam:nth-child(3) {
+    transform: translateY(-50%) rotate(-60deg);
+}
+
+/* Court Lines */
+.court-lines {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    z-index: 1;
+}
+
+.court-line {
+    position: absolute;
+    height: 3px;
+    background: #FF8C00;
+    border-radius: 2px;
+}
+
+.court-line-1 {
+    bottom: 20px;
+    left: 10%;
+    width: 30%;
+    transform: rotate(-15deg);
+    animation: courtGlow 4s ease-in-out infinite;
+}
+
+.court-line-2 {
+    bottom: 40px;
+    right: 10%;
+    width: 25%;
+    transform: rotate(15deg);
+    animation: courtGlow 4s ease-in-out infinite 2s;
+}
+
+/* Motto Text */
+.motto-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     text-align: center;
-    padding: 0 1rem;
+    z-index: 4;
+    font-family: 'Playfair Display', serif;
+    color: #8B4513;
+}
+
+.motto-line {
+    font-size: clamp(2rem, 8vw, 6rem);
+    font-weight: bold;
+    line-height: 1.1;
+    margin: 0;
+    opacity: 0;
+    animation: textFadeIn 2s ease-out forwards;
+}
+
+.motto-line:nth-child(1) { animation-delay: 0.5s; }
+.motto-line:nth-child(2) { animation-delay: 1s; }
+.motto-line:nth-child(3) { animation-delay: 1.5s; }
+
+/* Animations */
+@keyframes basketballBounce {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-20px) rotate(180deg);
+    }
+}
+
+@keyframes netSway {
+    0%, 100% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+    50% {
+        transform: translateX(-50%) rotate(5deg);
+    }
+}
+
+@keyframes courtGlow {
+    0%, 100% {
+        opacity: 0.6;
+        box-shadow: 0 0 5px rgba(255, 140, 0, 0.3);
+    }
+    50% {
+        opacity: 1;
+        box-shadow: 0 0 15px rgba(255, 140, 0, 0.6);
+    }
+}
+
+@keyframes textFadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Interactive hover effects for the animated cover */
+.animated-basketball-cover:hover .basketball {
+    animation-duration: 1s;
+    transform: scale(1.1);
+}
+
+.animated-basketball-cover:hover .net-line {
+    animation-duration: 1.5s;
+}
+
+.animated-basketball-cover:hover .court-line {
+    animation-duration: 2s;
+}
+
+/* Additional interactive elements */
+.basketball-hoop:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+.motto-text:hover .motto-line {
+    color: #f5b201;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+/* Sparkle effect for kids */
+@keyframes sparkle {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.sparkle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #FFD700;
+    border-radius: 50%;
+    animation: sparkle 2s infinite;
+}
+
+.sparkle:nth-child(1) { top: 20%; left: 20%; animation-delay: 0s; }
+.sparkle:nth-child(2) { top: 30%; right: 25%; animation-delay: 0.5s; }
+.sparkle:nth-child(3) { bottom: 30%; left: 30%; animation-delay: 1s; }
+.sparkle:nth-child(4) { bottom: 20%; right: 20%; animation-delay: 1.5s; }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .basketball-hoop {
+        left: 10%;
+        top: 15%;
+    }
+    
+    .basketball {
+        right: 15%;
+        bottom: 20%;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .motto-text {
+        padding: 0 2rem;
+    }
+    
+    .motto-line {
+        font-size: clamp(1.5rem, 6vw, 4rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .basketball-hoop {
+        left: 5%;
+        top: 10%;
+    }
+    
+    .backboard {
+        width: 60px;
+        height: 45px;
+    }
+    
+    .backboard-inner {
+        width: 45px;
+        height: 30px;
+    }
+    
+    .rim {
+        width: 45px;
+    }
+    
+    .basketball {
+        right: 10%;
+        bottom: 15%;
+        width: 40px;
+        height: 40px;
+    }
 }
 
 /*About us*/
@@ -292,6 +596,22 @@ h1, h2 {
 #age-groups .card-img-top {
     object-fit: cover;
     height: 250px;
+}
+
+.age-group-image {
+    height: 300px;
+    object-fit: cover;
+    object-position: center;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+    image-rendering: pixelated;
+    filter: contrast(1.1) brightness(1.05);
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.age-group-image:hover {
+    transform: scale(1.02);
+    filter: contrast(1.2) brightness(1.1);
 }
 
 .blurred-bg {

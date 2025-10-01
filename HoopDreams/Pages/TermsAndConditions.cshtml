@@ -1,0 +1,107 @@
+@page
+@model TermsAndConditionsModel
+@{
+    ViewData["Title"] = "Termeni și Condiții";
+}
+
+<div class="container mt-5 pt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <h1 class="text-center mb-5" style="color: #0b0d08;">Termeni și Condiții</h1>
+            
+            <div class="terms-content">
+                <section class="mb-4">
+                    <h3 style="color: #f5b201;">1. Informații Generale</h3>
+                    <p>Acestea sunt termenii și condițiile pentru utilizarea serviciilor oferite de HoopDreams, o organizație dedicată dezvoltării copiilor prin baschet.</p>
+                </section>
+
+                <section class="mb-4">
+                    <h3 style="color: #f5b201;">2. Înscrieri și Participare</h3>
+                    <ul>
+                        <li>Înscrierile se fac prin formularul online disponibil pe site</li>
+                        <li>Toate informațiile furnizate trebuie să fie corecte și complete</li>
+                        <li>HoopDreams își rezervă dreptul de a refuza înscrierile din motive de siguranță sau capacitate</li>
+                        <li>Vârsta minimă pentru participare este de 4 ani</li>
+                    </ul>
+                </section>
+
+                <section class="mb-4">
+                    <h3 style="color: #f5b201;">3. Taxe și Plăți</h3>
+                    <ul>
+                        <li>Taxele pentru antrenamente sunt comunicate la înscriere</li>
+                        <li>Plățile se efectuează conform programului stabilit</li>
+                        <li>În cazul întreruperii participării, restituirile se fac conform politicii interne</li>
+                    </ul>
+                </section>
+
+                <section class="mb-4">
+                    <h3 style="color: #f5b201;">4. Responsabilități ale Părinților</h3>
+                    <ul>
+                        <li>Părinții sunt responsabili pentru transportul copiilor la și de la antrenamente</li>
+                        <li>Este necesară prezența unui adult responsabil în timpul antrenamentelor pentru copiii sub 8 ani</li>
+                        <li>Informarea antrenorilor despre problemele de sănătate ale copilului</li>
+                        <li>Respectarea programului de antrenamente</li>
+                    </ul>
+                </section>
+
+                <section class="mb-4">
+                    <h3 style="color: #f5b201;">5. Siguranță și Sănătate</h3>
+                    <ul>
+                        <li>Toți participanții trebuie să aibă o declarație medicală de aptitudine</li>
+                        <li>HoopDreams nu este responsabil pentru accidentele care pot apărea în timpul antrenamentelor</li>
+                        <li>Participanții trebuie să respecte regulile de siguranță stabilite</li>
+                        <li>În caz de accident, se va contacta imediat familia</li>
+                    </ul>
+                </section>
+
+                <section class="mb-4">
+                    <h3 style="color: #f5b201;">6. Confidențialitate</h3>
+                    <ul>
+                        <li>Informațiile personale sunt protejate conform legislației în vigoare</li>
+                        <li>Datele sunt folosite exclusiv pentru organizarea activităților</li>
+                        <li>Nu vom partaja informațiile cu terțe părți fără consimțământul expres</li>
+                    </ul>
+                </section>
+
+                <section class="mb-4">
+                    <h3 style="color: #f5b201;">7. Modificări</h3>
+                    <p>HoopDreams își rezervă dreptul de a modifica acești termeni și condiții în orice moment. Modificările vor fi comunicate cu o săptămână înainte de intrarea în vigoare.</p>
+                </section>
+
+                <section class="mb-4">
+                    <h3 style="color: #f5b201;">8. Contact</h3>
+                    <p>Pentru întrebări sau clarificări legate de acești termeni și condiții, vă rugăm să ne contactați prin formularul de contact de pe site.</p>
+                </section>
+
+                <div class="text-center mt-5">
+                    <p class="text-muted">Ultima actualizare: @DateTime.Now.ToString("dd.MM.yyyy")</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.terms-content {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.terms-content h3 {
+    border-bottom: 2px solid #f5b201;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.terms-content ul {
+    padding-left: 1.5rem;
+}
+
+.terms-content li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+</style>
