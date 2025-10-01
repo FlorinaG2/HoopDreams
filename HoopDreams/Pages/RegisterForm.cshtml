@@ -11,21 +11,104 @@
 </head>
 <body>
     <div class="form-wrapper">
-        <form class="form-container" method="post">
-            <label for="name">Name</label>
-            <input type="text" id="name" name="NewClient.Name" value="@Model.NewClient?.Name" rows="1"/>
+        <div class="form-container">
+            <h2 class="text-center mb-4" style="color: #0b0d08;">Înscriere Copil</h2>
+            <form method="post">
+                <div class="form-section">
+                    <h4 style="color: #f5b201;">Informații Părinte</h4>
+                    
+                    <div class="form-group">
+                        <label for="name">Nume Părinte *</label>
+                        <input type="text" id="name" name="NewClient.Name" value="@Model.NewClient?.Name" required/>
+                    </div>
 
-            <label for="surname">Surname</label>
-            <input type="text" id="surname" name="NewClient.Surname" value="@Model.NewClient?.Surname"/>
+                    <div class="form-group">
+                        <label for="surname">Prenume Părinte *</label>
+                        <input type="text" id="surname" name="NewClient.Surname" value="@Model.NewClient?.Surname" required/>
+                    </div>
 
-            <label for="phone">Phone No</label>
-            <input type="tel" name="NewClient.PhoneNo" value="@Model.NewClient?.PhoneNo" id="phone"/>
+                    <div class="form-group">
+                        <label for="phone">Telefon *</label>
+                        <input type="tel" name="NewClient.PhoneNo" value="@Model.NewClient?.PhoneNo" id="phone" required/>
+                    </div>
 
-            <label for="email">Email</label>
-            <input type="email" id="email" name="NewClient.Email" value="@Model.NewClient?.Email" />
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="NewClient.Email" value="@Model.NewClient?.Email" required/>
+                    </div>
+                </div>
 
-            <button type="submit">Send</button>
-        </form>
+                <div class="form-section">
+                    <h4 style="color: #f5b201;">Informații Copil</h4>
+                    
+                    <div class="form-group">
+                        <label for="childName">Numele Copilului *</label>
+                        <input type="text" id="childName" name="NewClient.ChildName" value="@Model.NewClient?.ChildName" required/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="childAge">Vârsta Copilului *</label>
+                        <select id="childAge" name="NewClient.ChildAge" required>
+                            <option value="">Selectează vârsta</option>
+                            <option value="4">4 ani</option>
+                            <option value="5">5 ani</option>
+                            <option value="6">6 ani</option>
+                            <option value="7">7 ani</option>
+                            <option value="8">8 ani</option>
+                            <option value="9">9 ani</option>
+                            <option value="10">10 ani</option>
+                            <option value="11">11 ani</option>
+                            <option value="12">12 ani</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gender">Genul *</label>
+                        <select id="gender" name="NewClient.Gender" required>
+                            <option value="">Selectează genul</option>
+                            <option value="Băiat">Băiat</option>
+                            <option value="Fată">Fată</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="experience">Experiență cu Baschetul</label>
+                        <select id="experience" name="NewClient.Experience">
+                            <option value="">Selectează experiența</option>
+                            <option value="Nicio experiență">Nicio experiență</option>
+                            <option value="Începător (1-6 luni)">Începător (1-6 luni)</option>
+                            <option value="Intermediar (6 luni - 2 ani)">Intermediar (6 luni - 2 ani)</option>
+                            <option value="Avansat (peste 2 ani)">Avansat (peste 2 ani)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="medicalConditions">Condiții Medicale</label>
+                        <textarea id="medicalConditions" name="NewClient.MedicalConditions" rows="3" placeholder="Menționează orice condiții medicale relevante..."></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="emergencyContact">Contact de Urgență</label>
+                        <input type="tel" id="emergencyContact" name="NewClient.EmergencyContact" value="@Model.NewClient?.EmergencyContact" placeholder="Telefon alternativ"/>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="notes">Observații Adiționale</label>
+                        <textarea id="notes" name="NewClient.Notes" rows="3" placeholder="Alte informații relevante..."></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="termsAccepted" required/>
+                        <span class="checkmark"></span>
+                        Accept <a href="/TermsAndConditions" target="_blank" style="color: #f5b201;">Termenii și Condițiile</a> *
+                    </label>
+                </div>
+
+                <button type="submit" class="submit-btn">Trimite Înscrierea</button>
+            </form>
+        </div>
     </div>
 </body>
 </html>

@@ -49,6 +49,33 @@
     </div>
 </div>
 
+<!-- Terms and Conditions Popup -->
+<div id="termsPopup" class="terms-popup-overlay">
+    <div class="terms-popup-content">
+        <div class="terms-popup-header">
+            <h3>Termeni și Condiții</h3>
+            <button id="closeTermsPopup" class="close-btn">&times;</button>
+        </div>
+        <div class="terms-popup-body">
+            <p>Bun venit la HoopDreams! Pentru a continua, vă rugăm să citiți și să acceptați termenii și condițiile noastre.</p>
+            <div class="terms-summary">
+                <h5>Principalele puncte:</h5>
+                <ul>
+                    <li>Vârsta minimă pentru participare este de 4 ani</li>
+                    <li>Toate informațiile furnizate trebuie să fie corecte</li>
+                    <li>Părinții sunt responsabili pentru transportul copiilor</li>
+                    <li>Este necesară o declarație medicală de aptitudine</li>
+                    <li>HoopDreams nu este responsabil pentru accidentele în timpul antrenamentelor</li>
+                </ul>
+            </div>
+            <div class="terms-actions">
+                <button id="acceptTerms" class="accept-btn">Accept Termenii</button>
+                <a href="/TermsAndConditions" target="_blank" class="read-full-btn">Citește Termenii Compleți</a>
+            </div>
+        </div>
+    </div>
+</div>
+
 <section id="about" >
     <h2 class="mb-5 fw-bold mt-4 text-decoration-underline" style="color: #0b0d08;">Despre noi</h2>
     <div class="our-story mb-5 fw-bold" style="color: #f5b201;">
@@ -197,12 +224,41 @@
     </div>
 </section>
 
-<section id="contact">
-    <h2>Contact</h2>
+<section id="contact" class="py-5">
+    <div class="container">
+        <h2 class="mb-5 fw-bold text-center" style="color: #0b0d08;">Contact</h2>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="contact-cards">
+                    <div class="contact-card">
+                        <div class="contact-icon">📞</div>
+                        <h5>Telefon</h5>
+                        <a href="tel:0742044770" class="contact-link">0742 044 770</a>
+                        <p class="small text-muted">Apasă pentru a suna direct</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">💬</div>
+                        <h5>WhatsApp</h5>
+                        <a href="https://wa.me/40742044770" target="_blank" class="contact-link">0742 044 770</a>
+                        <p class="small text-muted">Trimite mesaj pe WhatsApp</p>
+                    </div>
+                    
+                    <div class="contact-card">
+                        <div class="contact-icon">✉️</div>
+                        <h5>Email</h5>
+                        <a href="mailto:hoopdreamscluj@gmail.com" class="contact-link">hoopdreamscluj@gmail.com</a>
+                        <p class="small text-muted">Trimite email</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </section>
 
 
 <script>
+    // Coach popup functionality
     const popupOverlay = document.getElementById("popupOverlay");
     const popupContent = document.getElementById("popupContent");
     const trigger = document.getElementById("coachTrigger");
@@ -221,5 +277,35 @@
             popupOverlay.style.pointerEvents = "none";
             popupOverlay.style.zIndex = "1";
         }
+    });
+
+    // Terms and Conditions popup functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const termsPopup = document.getElementById('termsPopup');
+        const acceptBtn = document.getElementById('acceptTerms');
+        const closeBtn = document.getElementById('closeTermsPopup');
+
+        // Check if terms were already accepted
+        if (!localStorage.getItem('termsAccepted')) {
+            termsPopup.style.display = 'flex';
+        }
+
+        // Accept terms
+        acceptBtn.addEventListener('click', function() {
+            localStorage.setItem('termsAccepted', 'true');
+            termsPopup.style.display = 'none';
+        });
+
+        // Close popup (but don't accept terms)
+        closeBtn.addEventListener('click', function() {
+            termsPopup.style.display = 'none';
+        });
+
+        // Close popup when clicking outside
+        termsPopup.addEventListener('click', function(e) {
+            if (e.target === termsPopup) {
+                termsPopup.style.display = 'none';
+            }
+        });
     });
 </script>

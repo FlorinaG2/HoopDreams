@@ -22,5 +22,22 @@ namespace HoopDreams.Models
 
         [Required]
         public string Email { get; set; }
+
+        [Required]
+        public string ChildName { get; set; }
+
+        [Required]
+        public int ChildAge { get; set; }
+
+        [Required]
+        public string Gender { get; set; }
+
+        public string Experience { get; set; }
+
+        public string MedicalConditions { get; set; }
+
+        public string EmergencyContact { get; set; }
+
+        public string Notes { get; set; }
     }
 }
