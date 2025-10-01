@@ -1,0 +1,31 @@
+@page
+@model RegisterFormModel
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - HoopDreams</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/registerForm.css" />
+</head>
+<body>
+    <div class="form-wrapper">
+        <form class="form-container" method="post">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="NewClient.Name" value="@Model.NewClient?.Name" rows="1"/>
+
+            <label for="surname">Surname</label>
+            <input type="text" id="surname" name="NewClient.Surname" value="@Model.NewClient?.Surname"/>
+
+            <label for="phone">Phone No</label>
+            <input type="tel" name="NewClient.PhoneNo" value="@Model.NewClient?.PhoneNo" id="phone"/>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="NewClient.Email" value="@Model.NewClient?.Email" />
+
+            <button type="submit">Send</button>
+        </form>
+    </div>
+</body>
+</html>

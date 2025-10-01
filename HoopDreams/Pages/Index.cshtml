@@ -1,0 +1,157 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="hero-section">
+    <img src="../Images/kidsphoto.jpeg" alt="Kids photo" class="hero-image" />
+    <div class="slogan-container text-center">
+        <h1 class="display-4">Totul începe cu un vis!</h1>
+    </div>
+</div>
+
+<section id="about" >
+    <h2 class="mb-5 fw-bold mt-4 text-decoration-underline" style="color: #0b0d08;">Despre noi</h2>
+    <div class="our-story mb-5 fw-bold" style="color: #f5b201;">
+
+        <div class="basketball-wrapper">
+            <a class="basketball-icon-link" asp-page="/OurStory" style="text-decoration: none;">
+                <div class="bouncing-ball">🏀</div>
+                <svg class="curved-text bouncing-ball" viewBox="0 0 100 50">
+                    <defs>
+                        <path id="topArc" d="M10,40 A40,40 0 0,1 90,40" />
+                    </defs>
+                    <text font-size="20" fill="orange" font-weight="bold">
+                        <textPath href="#topArc" startOffset="50%" text-anchor="middle">
+                            Despre noi
+                        </textPath>
+                    </text>
+                </svg>
+            </a>
+
+            <a class="basketball-icon-link" id="coachTrigger" style="color: #f5b201" title="Antrenori">
+                <div class="bouncing-ball">🏀</div>
+                <svg class="curved-text bouncing-ball" viewBox="0 0 100 50">
+                    <defs>
+                        <path id="topArc" d="M10,40 A40,40 0 0,1 90,40" />
+                    </defs>
+                    <text font-size="20" fill="orange" font-weight="bold">
+                        <textPath href="#topArc" startOffset="50%" text-anchor="middle">
+                            Antrenori
+                        </textPath>
+                    </text>
+                </svg>
+            </a>
+
+            <a class="basketball-icon-link" asp-page="" style="text-decoration: none;">
+                <div class="bouncing-ball">🏀</div>
+                <svg class="curved-text bouncing-ball" viewBox="0 0 100 50">
+                    <defs>
+                        <path id="topArc" d="M10,40 A40,40 0 0,1 90,40" />
+                    </defs>
+                    <text font-size="20" fill="orange" font-weight="bold">
+                        <textPath href="#topArc" startOffset="50%" text-anchor="middle">
+                            Something
+                        </textPath>
+                    </text>
+                </svg>
+            </a>
+
+            <a class="basketball-icon-link" asp-page="" style="text-decoration: none;">
+                <div class="bouncing-ball">🏀</div>
+                <svg class="curved-text bouncing-ball" viewBox="0 0 100 50">
+                    <defs>
+                        <path id="topArc" d="M10,40 A40,40 0 0,1 90,40" />
+                    </defs>
+                    <text font-size="20" fill="orange" font-weight="bold">
+                        <textPath href="#topArc" startOffset="50%" text-anchor="middle">
+                            Something
+                        </textPath>
+                    </text>
+                </svg>
+            </a>
+            <div class="popup-overlay" id="popupOverlay">
+                <div class="coach-img" id="popupContent">
+                    <a href="/Coaches/AlexHoza">
+                        <img src="/Images/AlexCoach.jpeg" class="coach" id="alex" alt="Alex Coach" />
+                    </a>
+                    <a href="/Coaches/MateiNuna">
+                        <img src="/Images/MateiCoach.jpg" class="coach" id="matei" alt="Matei Coach" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="age-groups">
+    <div class="container">
+        <h2 class="mb-5 fw-bold" style="color: #0b0d08;">Grupe de Vârstă</h2>
+        <div class="row justify-content-center g-4">
+
+            <!-- Baby Basket -->
+            <div class="col-md-6 col-lg-5">
+                <div class="card h-80 shadow border-0 hover-grow position-relative overflow-hidden">
+                    <img src="/Images/baby-basket.png"
+                         class="rounded-top w-100"
+                         style="height: 25vw; object-fit: cover;" alt="Baby Basket">
+
+                    <div class="card-overlay position-absolute bottom-0 start-0 w-100 p-3 text-white">
+                        <h6 class="mb-2 fw-semibold">(Under 10)</h6>
+                        <p class="mb-0 small position-relative">
+                            Distracție, joacă și mișcare! În grupa Baby Basket punem accent pe coordonare, încredere și spirit de echipă – totul într-un cadru prietenos și sigur.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Mini Basket -->
+            <div class="col-md-6 col-lg-5">
+                <div class="card h-80 shadow border-0 hover-grow position-relative overflow-hidden">
+                    <img src="/Images/mini-basket.png"
+                         class="rounded-top"
+                         style="height: 25vw;" object-fit: cover;" alt="Mini Basket">
+
+                    <div class="card-overlay position-absolute bottom-0 start-0 w-100 p-3 text-white">
+                        <h6 class="mb-2 fw-semibold">(Under 12)</h6>
+                        <p class="mb-0 small">
+                            Dezvoltăm tehnica, disciplina și bucuria jocului! Mini Basket este locul unde pasiunea pentru baschet prinde formă și se transformă în performanță.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <p class="mt-4 text-muted">🏆 Fiecare grupă este mixtă și adaptată vârstei și nevoilor fiecărui copil. Baschetul începe cu zâmbetul. 💛</p>
+    </div>
+</section>
+
+<section id="contact">
+    <h2>Contact</h2>
+</section>
+
+
+<script>
+    const popupOverlay = document.getElementById("popupOverlay");
+    const popupContent = document.getElementById("popupContent");
+    const trigger = document.getElementById("coachTrigger");
+
+    // Show popup on trigger click
+    trigger.addEventListener("click", () => {
+        popupOverlay.style.opacity = "1";
+        popupOverlay.style.pointerEvents = "auto";
+        popupOverlay.style.zIndex = "999";
+    });
+
+    // Hide popup on click outside
+    popupOverlay.addEventListener("click", (e) => {
+        if (!popupContent.contains(e.target)) {
+            popupOverlay.style.opacity = "0";
+            popupOverlay.style.pointerEvents = "none";
+            popupOverlay.style.zIndex = "1";
+        }
+    });
+</script>
