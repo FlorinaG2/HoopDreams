@@ -43,10 +43,20 @@ namespace HoopDreams.Pages
                 Text = $@"
             New client registration:
             
+            Parent Information:
             Name: {client.Name}
             Surname: {client.Surname}
             Phone: {client.PhoneNo}
-            Email: {client.Email}"
+            Email: {client.Email}
+            
+            Child Information:
+            Child Name: {client.ChildName}
+            Child Age: {client.ChildAge} years
+            Gender: {client.Gender}
+            Experience: {client.Experience ?? "Not specified"}
+            Medical Conditions: {client.MedicalConditions ?? "None"}
+            Emergency Contact: {client.EmergencyContact ?? "Not provided"}
+            Additional Notes: {client.Notes ?? "None"}"
             };
 
             using var smtp = new MailKit.Net.Smtp.SmtpClient();
