@@ -784,7 +784,7 @@ h1, h2 {
 
 /* Age Group Images */
 .age-group-image-container {
-    height: 300px;
+    height: 400px;
     width: 100%;
     display: flex;
     align-items: center;
