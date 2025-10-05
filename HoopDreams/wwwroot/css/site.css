@@ -560,14 +560,13 @@ h1, h2 {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--gutter);
-    padding-inline: var(--gutter);
-    margin-top: -40vw;
+    padding: var(--gutter);
     z-index: 4;
-    max-width: 100vw;
-    max-height: 70vh;
+    max-width: 90vw;
+    max-height: 80vh;
     overflow: hidden;
-    margin-top: -60vh;
-    margin-right: 20vw;
+    justify-items: center;
+    align-items: center;
 }
 
 @media (min-width: 900px) {
@@ -599,13 +598,15 @@ h1, h2 {
 
 @media (min-width: 900px) {
     .coach {
-        max-width: min(50vw, 100%);
+        max-width: min(40vw, 400px);
+        max-height: 60vh;
     }
 }
 
 @media (max-width: 899px) {
     .coach {
-        max-width: 90vw;
+        max-width: 80vw;
+        max-height: 50vh;
     }
 }
 
