@@ -1010,10 +1010,12 @@ h1, h2 {
 
 /* Contact Section */
 .contact-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
     margin-top: 2rem;
+    padding: 1rem;
 }
 
 .contact-card {
@@ -1025,6 +1027,32 @@ h1, h2 {
     backdrop-filter: blur(10px);
     transition: all 0.3s ease;
     border: 2px solid transparent;
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .contact-cards {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .contact-card {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .contact-card {
+        flex: 1;
+        min-width: 200px;
+        max-width: 250px;
+    }
 }
 
 .contact-card:hover {
