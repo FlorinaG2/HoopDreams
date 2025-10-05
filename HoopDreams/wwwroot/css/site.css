@@ -272,7 +272,7 @@ h1, h2 {
     height: 60px;
     background: #FF8C00;
     border-radius: 50%;
-    z-index: 3;
+    z-index: 1;
     animation: basketballBounce 2s ease-in-out infinite;
     box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
@@ -564,8 +564,10 @@ h1, h2 {
     margin-top: -40vw;
     z-index: 4;
     max-width: 100vw;
-    max-height: 90vh;
+    max-height: 70vh;
     overflow: hidden;
+    margin-top: -60vh;
+    margin-right: 20vw;
 }
 
 @media (min-width: 900px) {
@@ -587,7 +589,7 @@ h1, h2 {
     width: auto;
     height: auto;
     max-width: 100%;
-    max-height: 90vh;
+    max-height: 70vh;
     object-fit: contain;
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(255, 255, 255, 0.15);
@@ -622,14 +624,14 @@ h1, h2 {
     align-items: center;
 }
 
-#alex {
+/*#alex {
     max-width: 946px;
     max-height: 1356px;
 }
 
 #matei{
     max-width: 946px;
-}
+}*/
 
 .hover-grow {
     transition: transform 0.3s ease;
