@@ -260,7 +260,7 @@
 
         </div>
 
-        <p class="mt-4 text-muted">🏆 Fiecare grupă este mixtă și adaptată vârstei și nevoilor fiecărui copil. Baschetul începe cu zâmbetul. 💛</p>
+        <p class="mt-4 text-muted">🏆 Fiecare grupă este adaptată vârstei și nevoilor fiecărui copil. Baschetul începe cu zâmbetul. 💛</p>
     </div>
 </section>
 
@@ -268,19 +268,19 @@
     <div class="container">
         <h2 class="mb-5 fw-bold text-center" style="color: #0b0d08;">Contact</h2>
         <div class="contact-cards">
-            <div class="">
+            <div class="contact-card">
                 <div class="contact-icon">📞</div>
                 <h5>Telefon</h5>
                 <a href="tel:0742044770" class="contact-link">0742 044 770</a>
                 <p class="small text-muted">Apasă pentru a suna direct</p>
             </div>
-            <div class="">
+            <div class="contact-card">
                 <div class="contact-icon">💬</div>
                 <h5>WhatsApp</h5>
                 <a href="https://wa.me/40742044770" target="_blank" class="contact-link">0742 044 770</a>
                 <p class="small text-muted">Trimite mesaj pe WhatsApp</p>
             </div>
-            <div class="">
+            <div class="contact-card">
                 <div class="contact-icon">✉️</div>
                 <h5>Email</h5>
                 <a href="mailto:hoopdreamscluj@gmail.com" class="contact-link">hoopdreamscluj@gmail.com</a>
@@ -315,6 +315,13 @@
 
     // Terms and Conditions popup functionality
     document.addEventListener('DOMContentLoaded', function () {
+        // Reset coach popup state on page load to fix blur issue when returning from coach pages
+        if (popupOverlay) {
+            popupOverlay.style.opacity = "0";
+            popupOverlay.style.pointerEvents = "none";
+            popupOverlay.style.zIndex = "1";
+        }
+        
         const termsPopup = document.getElementById('termsPopup');
         const acceptBtn = document.getElementById('acceptTerms');
         const closeBtn = document.getElementById('closeTermsPopup');
@@ -340,6 +347,21 @@
             if (e.target === termsPopup) {
                 termsPopup.style.display = 'none';
             }
+        });
+
+        // Auto-close mobile menu when clicking on menu links
+        const navbarToggler = document.querySelector('.navbar-toggler');
+        const navbarCollapse = document.querySelector('.navbar-collapse');
+        const navLinks = document.querySelectorAll('.navbar-collapse .nav-link');
+
+        navLinks.forEach(function(link) {
+            link.addEventListener('click', function() {
+                // Check if menu is currently expanded (Bootstrap adds 'show' class)
+                if (navbarCollapse.classList.contains('show')) {
+                    // Trigger click on the toggle button to close the menu
+                    navbarToggler.click();
+                }
+            });
         });
     });
 </script>

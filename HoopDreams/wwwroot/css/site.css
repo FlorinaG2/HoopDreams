@@ -1438,6 +1438,35 @@ h1, h2 {
     z-index: 1;
 }
 
+/* Mobile adjustments for basketball balls in Despre noi section */
+@media (max-width: 768px) {
+    .bouncing-ball {
+        top: 40px;
+        font-size: 1.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .bouncing-ball {
+        top: 50px;
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 414px) {
+    .bouncing-ball {
+        top: 60px;
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 375px) {
+    .bouncing-ball {
+        top: 70px;
+        font-size: 2.4rem;
+    }
+}
+
 @media (min-width: 480px) {
     .bouncing-ball {
         font-size: 2rem;
