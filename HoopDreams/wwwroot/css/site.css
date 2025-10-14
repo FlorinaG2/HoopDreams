@@ -172,6 +172,64 @@ body {
     .nav-link {
         padding: 0.5rem 0.8rem;
     }
+    
+    /* Mobile menu toggle button styling */
+    .navbar-toggler {
+        border: 2px solid white;
+        border-radius: 8px;
+        padding: 0.5rem 0.75rem;
+        background-color: rgba(245, 178, 1, 0.9);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    }
+    
+    .navbar-toggler:focus {
+        box-shadow: 0 0 0 0.2rem rgba(245, 178, 1, 0.5);
+    }
+    
+    .navbar-toggler-icon {
+        background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='3' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+        width: 1.5em;
+        height: 1.5em;
+    }
+    
+    /* Collapsed menu styling */
+    .navbar-collapse {
+        background-color: rgba(11, 13, 8, 0.95);
+        backdrop-filter: blur(10px);
+        border-radius: 10px;
+        margin-top: 0.5rem;
+        padding: 1rem;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+        border: 1px solid rgba(245, 178, 1, 0.3);
+    }
+    
+    .navbar-collapse .navbar-nav {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .navbar-collapse .nav-item {
+        margin-bottom: 0.5rem;
+    }
+    
+    .navbar-collapse .nav-link {
+        color: white !important;
+        font-size: 1.1rem;
+        font-weight: bold;
+        padding: 0.75rem 1rem;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+        text-align: center;
+        background-color: rgba(245, 178, 1, 0.1);
+        border: 1px solid transparent;
+    }
+    
+    .navbar-collapse .nav-link:hover {
+        background-color: rgba(245, 178, 1, 0.3);
+        border-color: rgba(245, 178, 1, 0.5);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(245, 178, 1, 0.3);
+    }
 }
 
 @media (max-width: 576px) {
@@ -195,6 +253,22 @@ body {
     
     .instagram-link {
         font-size: 1.1rem !important;
+    }
+    
+    /* Enhanced mobile menu toggle for smaller screens */
+    .navbar-toggler {
+        padding: 0.4rem 0.6rem;
+        border-width: 2px;
+    }
+    
+    .navbar-toggler-icon {
+        width: 1.4em;
+        height: 1.4em;
+    }
+    
+    .navbar-collapse .nav-link {
+        font-size: 1rem;
+        padding: 0.6rem 0.8rem;
     }
 }
 
@@ -449,6 +523,40 @@ h1, h2 {
     margin: 0;
     opacity: 0;
     animation: textFadeIn 2s ease-out forwards;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Mobile motto text improvements */
+@media (max-width: 768px) {
+    .motto-line {
+        font-size: clamp(1.8rem, 10vw, 4rem);
+        text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+        letter-spacing: 1px;
+    }
+}
+
+@media (max-width: 576px) {
+    .motto-line {
+        font-size: clamp(1.6rem, 12vw, 3.5rem);
+        text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.6);
+        letter-spacing: 1.5px;
+    }
+}
+
+@media (max-width: 414px) {
+    .motto-line {
+        font-size: clamp(1.4rem, 14vw, 3rem);
+        text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.7);
+        letter-spacing: 2px;
+    }
+}
+
+@media (max-width: 375px) {
+    .motto-line {
+        font-size: clamp(1.2rem, 16vw, 2.8rem);
+        text-shadow: 6px 6px 12px rgba(0, 0, 0, 0.8);
+        letter-spacing: 2.5px;
+    }
 }
 
 .motto-line:nth-child(1) { animation-delay: 0.5s; }
@@ -551,30 +659,87 @@ h1, h2 {
 /* Responsive Design */
 @media (max-width: 768px) {
     .basketball-hoop {
-        left: 10%;
-        top: 15%;
+        left: 8%;
+        top: 12%;
+        transform: scale(1.1);
+    }
+    
+    .backboard {
+        width: 70px;
+        height: 52px;
+    }
+    
+    .backboard-inner {
+        width: 52px;
+        height: 35px;
+    }
+    
+    .rim {
+        width: 52px;
+    }
+    
+    .net {
+        width: 52px;
+    }
+    
+    .pole {
+        height: 180px;
     }
     
     .basketball {
-        right: 15%;
-        bottom: 20%;
-        width: 50px;
-        height: 50px;
+        right: 12%;
+        bottom: 18%;
+        width: 55px;
+        height: 55px;
     }
     
     .motto-text {
         padding: 0 2rem;
     }
+}
+
+@media (max-width: 576px) {
+    .basketball-hoop {
+        left: 6%;
+        top: 8%;
+        transform: scale(1.2);
+    }
     
-    .motto-line {
-        font-size: clamp(1.5rem, 6vw, 4rem);
+    .backboard {
+        width: 65px;
+        height: 48px;
+    }
+    
+    .backboard-inner {
+        width: 48px;
+        height: 32px;
+    }
+    
+    .rim {
+        width: 48px;
+    }
+    
+    .net {
+        width: 48px;
+    }
+    
+    .pole {
+        height: 160px;
+    }
+    
+    .basketball {
+        right: 8%;
+        bottom: 12%;
+        width: 48px;
+        height: 48px;
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 414px) {
     .basketball-hoop {
-        left: 5%;
-        top: 10%;
+        left: 4%;
+        top: 6%;
+        transform: scale(1.3);
     }
     
     .backboard {
@@ -591,11 +756,56 @@ h1, h2 {
         width: 45px;
     }
     
+    .net {
+        width: 45px;
+    }
+    
+    .pole {
+        height: 140px;
+    }
+    
     .basketball {
-        right: 10%;
-        bottom: 15%;
-        width: 40px;
-        height: 40px;
+        right: 6%;
+        bottom: 10%;
+        width: 45px;
+        height: 45px;
+    }
+}
+
+@media (max-width: 375px) {
+    .basketball-hoop {
+        left: 3%;
+        top: 5%;
+        transform: scale(1.4);
+    }
+    
+    .backboard {
+        width: 55px;
+        height: 42px;
+    }
+    
+    .backboard-inner {
+        width: 42px;
+        height: 28px;
+    }
+    
+    .rim {
+        width: 42px;
+    }
+    
+    .net {
+        width: 42px;
+    }
+    
+    .pole {
+        height: 120px;
+    }
+    
+    .basketball {
+        right: 5%;
+        bottom: 8%;
+        width: 42px;
+        height: 42px;
     }
 }
 
@@ -777,6 +987,7 @@ h1, h2 {
 .navbar-toggler {
     display: flex;
     align-items: center;
+    color: white;
 }
 
 /* Instagram Link Styling */
