@@ -101,6 +101,33 @@ html {
     scroll-behavior: smooth;
 }
 
+/* Ensure smooth navigation and proper page positioning */
+body {
+    scroll-behavior: smooth;
+}
+
+/* Smooth scroll to top when navigating to home page */
+html, body {
+    scroll-behavior: smooth;
+}
+
+/* Ensure proper page positioning on load */
+@keyframes fadeInFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Apply fade-in animation to main content */
+.container {
+    animation: fadeInFromTop 0.5s ease-out;
+}
+
 body {
     padding: 100px;
     background-size: auto;
@@ -1589,6 +1616,35 @@ h1, h2 {
     height: 80%;
     pointer-events: visiblePainted;
     z-index: 2;
+}
+
+/* Mobile adjustments for curved text to ensure visibility above basketball balls */
+@media (max-width: 768px) {
+    .curved-text {
+        top: -20px;
+        height: 90%;
+    }
+}
+
+@media (max-width: 576px) {
+    .curved-text {
+        top: -30px;
+        height: 95%;
+    }
+}
+
+@media (max-width: 414px) {
+    .curved-text {
+        top: -40px;
+        height: 100%;
+    }
+}
+
+@media (max-width: 375px) {
+    .curved-text {
+        top: -50px;
+        height: 100%;
+    }
 }
 
 .brighter-logo {
