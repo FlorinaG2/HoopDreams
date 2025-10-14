@@ -680,7 +680,7 @@ h1, h2 {
 @media (max-width: 768px) {
     .basketball-hoop {
         left: 8%;
-        top: 12%;
+        top: 30%;
         transform: scale(1.1);
     }
     
@@ -721,7 +721,7 @@ h1, h2 {
 @media (max-width: 576px) {
     .basketball-hoop {
         left: 6%;
-        top: 8%;
+        top: 30%;
         transform: scale(1.2);
     }
     
@@ -758,7 +758,7 @@ h1, h2 {
 @media (max-width: 414px) {
     .basketball-hoop {
         left: 4%;
-        top: 6%;
+        top: 30%;
         transform: scale(1.3);
     }
     
@@ -795,7 +795,7 @@ h1, h2 {
 @media (max-width: 375px) {
     .basketball-hoop {
         left: 3%;
-        top: 5%;
+        top: 30%;
         transform: scale(1.4);
     }
     
@@ -1557,7 +1557,7 @@ h1, h2 {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    gap: 1rem;
+    gap: 10rem;
     z-index: 2;
     flex-wrap: wrap;
     padding: 1rem;
@@ -1566,6 +1566,7 @@ h1, h2 {
 @media (min-width: 480px) {
     .basketball-wrapper {
         gap: 2rem;
+        height: auto;
     }
 }
 
@@ -1573,6 +1574,7 @@ h1, h2 {
     .basketball-wrapper {
         gap: 4rem;
         flex-wrap: nowrap; 
+        height: auto;
     }
 }
 
@@ -1615,28 +1617,28 @@ h1, h2 {
 /* Mobile adjustments for curved text to ensure visibility above basketball balls */
 @media (max-width: 768px) {
     .curved-text {
-        top: -20px;
+        top: auto;
         height: 90%;
     }
 }
 
 @media (max-width: 576px) {
     .curved-text {
-        top: -30px;
+        top: auto;
         height: 95%;
     }
 }
 
 @media (max-width: 414px) {
     .curved-text {
-        top: -40px;
+        top: auto;
         height: 100%;
     }
 }
 
 @media (max-width: 375px) {
     .curved-text {
-        top: -50px;
+        top: auto;
         height: 100%;
     }
 }
