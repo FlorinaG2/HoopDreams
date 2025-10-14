@@ -427,63 +427,57 @@ h1, h2 {
     transform: translateX(-50%);
     border-radius: 2px;
 }
-
 .net {
     position: absolute;
-    top: 104px;
     left: 50%;
     transform: translateX(-50%);
-    width: 60px;
-    height: 30px;
+    /* ajustează top ca să pornească imediat sub inel */
+    top: calc(var(--rim-top, 54px)); /* pune aici valoarea ta – sau folosește px direct */
+    width: 84px;
+    height: 60px;
+    z-index: 2; /* sub inel, peste fundal */
+    /* două “plase” încrucișate */
+    background: repeating-linear-gradient(60deg, transparent 0 6px, rgba(255, 165, 0,.95) 6px 8px), repeating-linear-gradient(-60deg, transparent 0 6px, rgba(255,255,255,.95) 6px 8px);
+    /* îngustează în jos ca un con */
+    clip-path: polygon(6% 0, 94% 0, 78% 100%, 22% 100%);
+    filter: drop-shadow(0 1px 0 rgba(0,0,0,.25));
+    /* mic efect de legănare */
+    transform-origin: 50% 0%;
+    animation: net-sway 3.2s ease-in-out infinite;
 }
 
-.net-line {
-    position: absolute;
-    width: 2px;
-    height: 30px;
-    background: #8B4513;
-    left: 50%;
-    transform: translateX(-50%);
-    animation: netSway 3s ease-in-out infinite;
-}
+    /* “șnururi” de prindere la inel (opțional) */
+    .net::before {
+        content: "";
+        position: absolute;
+        inset: 0 0 auto 0;
+        height: 6px;
+        background: radial-gradient(circle at 15% 50%, rgba(255,255,255,.9) 0 2px, transparent 3px), radial-gradient(circle at 35% 50%, rgba(255,255,255,.9) 0 2px, transparent 3px), radial-gradient(circle at 55% 50%, rgba(255,255,255,.9) 0 2px, transparent 3px), radial-gradient(circle at 75% 50%, rgba(255,255,255,.9) 0 2px, transparent 3px), radial-gradient(circle at 90% 50%, rgba(255,255,255,.9) 0 2px, transparent 3px);
+        opacity: .9;
+    }
 
-.net-line:nth-child(1) { left: 20%; animation-delay: 0s; }
-.net-line:nth-child(2) { left: 40%; animation-delay: 0.2s; }
-.net-line:nth-child(3) { left: 60%; animation-delay: 0.4s; }
-.net-line:nth-child(4) { left: 80%; animation-delay: 0.6s; }
+/* animația plasei */
+@keyframes net-sway {
+    0%,100% {
+        transform: translateX(-50%) rotate(0deg);
+    }
+
+    50% {
+        transform: translateX(-50%) rotate(2.2deg);
+    }
+}
 
 .pole {
     width: 6px;
     height: 200px;
     background: #8B4513;
     position: absolute;
-    top: 130px;
+    top: 60px;
     left: 50%;
     transform: translateX(-50%);
 }
 
 /* Basketball */
-.basketball {
-    position: absolute;
-    right: 20%;
-    bottom: 25%;
-    width: 60px;
-    height: 60px;
-    background: #FF8C00;
-    border-radius: 50%;
-    z-index: 1;
-    animation: basketballBounce 2s ease-in-out infinite;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-}
-
-.basketball-seam {
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background: #8B4513;
-    top: 50%;
-    transform: translateY(-50%);
-}
 
 .basketball-seam:nth-child(1) {
     transform: translateY(-50%) rotate(0deg);
@@ -523,7 +517,7 @@ h1, h2 {
 }
 
 .court-line-2 {
-    bottom: 40px;
+    bottom: 20px;
     right: 10%;
     width: 25%;
     transform: rotate(15deg);
