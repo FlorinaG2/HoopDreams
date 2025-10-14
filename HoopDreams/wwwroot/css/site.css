@@ -12,6 +12,33 @@ a.navbar-brand {
     max-height: none;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+    max-width: 100%;
+}
+
+/* Container responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        padding-top: 0.3rem;
+        padding-bottom: 0.3rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+        padding-top: 0.2rem;
+        padding-bottom: 0.2rem;
+    }
+}
+
+@media (max-width: 414px) {
+    .container {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
 }
 
 .sigla-hoop {
@@ -86,6 +113,19 @@ body {
     transition: opacity 0.4s ease;
 }
 
+/* Mobile responsive padding */
+@media (max-width: 768px) {
+    body {
+        padding: 60px 20px 20px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 50px 15px 15px 15px;
+    }
+}
+
 @keyframes gradientShift {
     0% {
         background-position: 0% 50%;
@@ -101,17 +141,61 @@ body {
 }
 
 .custom-navbar-bg {
-        padding-top: 0.25rem;
+    padding-top: 0.25rem;
     padding-bottom: 0.25rem;
     height: auto;
     max-height: 80px;
-    /*background-color: #0b0d08 !important;*/
     width: auto !important;
     display: flex;
     align-items: center;
     background-color: #0b0d08 !important;
     padding: 0.25rem 0;
     height: 80px;
+}
+
+/* Mobile navbar optimizations */
+@media (max-width: 768px) {
+    .custom-navbar-bg {
+        height: 70px;
+        padding: 0.2rem 0;
+    }
+    
+    .sigla-hoop {
+        height: 8vh;
+        max-height: 60px;
+    }
+    
+    .navbar-nav {
+        font-size: 0.9rem;
+    }
+    
+    .nav-link {
+        padding: 0.5rem 0.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .custom-navbar-bg {
+        height: 65px;
+        padding: 0.15rem 0;
+    }
+    
+    .sigla-hoop {
+        height: 7vh;
+        max-height: 55px;
+    }
+    
+    .navbar-nav {
+        font-size: 0.85rem;
+    }
+    
+    .nav-link {
+        padding: 0.4rem 0.6rem;
+    }
+    
+    .instagram-link {
+        font-size: 1.1rem !important;
+    }
 }
 
 .footer {
@@ -176,6 +260,21 @@ h1, h2 {
     align-items: center;
     justify-content: center;
     margin-top: -30px;
+}
+
+/* Hero section responsive adjustments */
+@media (max-width: 768px) {
+    .hero-section {
+        height: 90vh;
+        margin-top: -20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-section {
+        height: 85vh;
+        margin-top: -15px;
+    }
 }
 
 .animated-basketball-cover {
@@ -746,92 +845,140 @@ h1, h2 {
     filter: blur(0px) contrast(1.2) brightness(1.1);
 }
 
-/* Age Group Card Hover Effects */
-.age-group-card {
-    transition: all 0.3s ease;
+/* Enhanced Age Group Card Hover Effects */
+.hover-grow {
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     cursor: pointer;
+    border-radius: 15px;
+    overflow: hidden;
+    position: relative;
 }
 
-.age-group-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
-    border: 2px solid #f5b201;
+.hover-grow:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 
+                0 0 30px rgba(245, 178, 1, 0.2);
+    border: 3px solid #f5b201;
 }
 
-.age-group-card:hover .age-group-image {
-    transform: scale(1.05);
-    filter: brightness(1.1);
+.hover-grow:hover .age-group-image {
+    transform: scale(1.08);
+    filter: brightness(1.15) contrast(1.1);
+}
+
+/* Touch device detection and always-visible overlay */
+@media (hover: none) and (pointer: coarse) {
+    .hover-grow {
+        transform: none;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        border: 2px solid #f5b201;
+    }
+    
+    .card-hover-overlay {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+        background: linear-gradient(to top, rgba(0,0,0,.9), rgba(0,0,0,.4) 70%, rgba(0,0,0,.1));
+    }
+    
+    .card-overlay {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    
+    .age-group-image {
+        transform: scale(1.03);
+        filter: brightness(1.1) contrast(1.05);
+    }
 }
 
 .card-overlay {
-    background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.3));
+    background: linear-gradient(to top, rgba(0,0,0,0.85), rgba(0,0,0,0.4) 60%, transparent);
     color: white;
-    backdrop-filter: blur(1px);
+    backdrop-filter: blur(2px);
     margin-top: 300px;
     z-index: 2;
-    transition: all 0.3s ease;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     opacity: 1;
+    transform: translateY(0);
 }
 
 .card-hover-overlay {
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.8));
-    color: white;
-    backdrop-filter: blur(3px);
-    margin-top: 300px;
-    z-index: 3;
-    transform: translateY(100%);
-    transition: transform 0.4s ease;
-    border-radius: 0 0 0.375rem 0.375rem;
-    opacity: 0;
-}
-
-.age-group-card:hover .card-overlay {
+    inset: 0; /* top:0 right:0 bottom:0 left:0 */
+    z-index: 3; /* above .card-overlay */
     opacity: 0;
     transform: translateY(20px);
+    background: linear-gradient(to top, rgba(0,0,0,.95), rgba(0,0,0,.5) 70%, rgba(0,0,0,.2) 90%, transparent);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    pointer-events: none;
+    backdrop-filter: blur(3px);
 }
 
-.age-group-card:hover .card-hover-overlay {
+.hover-grow:hover .card-overlay {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.hover-grow:hover .card-hover-overlay {
     transform: translateY(0);
     opacity: 1;
+    pointer-events: auto;
 }
 
 .age-badge {
     display: inline-block;
     background: linear-gradient(135deg, #f5b201, #ff8c00);
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    box-shadow: 0 2px 8px rgba(245, 178, 1, 0.3);
+    padding: 0.6rem 1.2rem;
+    border-radius: 25px;
+    box-shadow: 0 4px 15px rgba(245, 178, 1, 0.4);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 4px 15px rgba(245, 178, 1, 0.4);
+    }
+    50% {
+        box-shadow: 0 6px 20px rgba(245, 178, 1, 0.6);
+    }
 }
 
 .age-range {
     font-weight: bold;
-    font-size: 0.9rem;
+    font-size: 0.95rem;
     color: #0b0d08;
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.3);
 }
 
 .card-hover-overlay h5 {
     color: #f5b201;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
-    font-size: 1.2rem;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.9);
+    font-size: 1.4rem;
     font-weight: bold;
+    margin-bottom: 1rem;
+    letter-spacing: 0.5px;
 }
 
 .card-hover-overlay p {
-    line-height: 1.4;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-    font-size: 0.9rem;
+    line-height: 1.5;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+    font-size: 0.95rem;
+    margin-bottom: 0.8rem;
 }
 
 .card-hover-overlay strong {
     color: #f5b201;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
     font-weight: bold;
+    font-size: 1rem;
 }
 
 .card-hover-overlay .age-badge {
     background: linear-gradient(135deg, #f5b201, #ff8c00);
-    box-shadow: 0 4px 12px rgba(245, 178, 1, 0.5);
-    border: 2px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 6px 20px rgba(245, 178, 1, 0.6);
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    transform: scale(1.05);
 }
 
 /* Age Group Images */
@@ -852,11 +999,185 @@ h1, h2 {
     height: 100%;
     object-fit: cover;
     object-position: center;
-    transition: transform 0.3s ease;
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 .age-group-image-container:hover .age-group-image {
-    transform: scale(1.02);
+    transform: scale(1.05);
+}
+
+/* Responsive Age Group Cards */
+@media (max-width: 1200px) {
+    .age-group-image-container {
+        height: 350px;
+    }
+    
+    .card-overlay {
+        margin-top: 250px;
+    }
+}
+
+@media (max-width: 992px) {
+    .age-group-image-container {
+        height: 320px;
+    }
+    
+    .card-overlay {
+        margin-top: 220px;
+        padding: 1.5rem;
+    }
+    
+    .card-hover-overlay {
+        padding: 1.5rem;
+    }
+    
+    .card-hover-overlay h5 {
+        font-size: 1.2rem;
+    }
+    
+    .card-hover-overlay p {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .age-group-image-container {
+        height: 280px;
+    }
+    
+    .card-overlay {
+        margin-top: 180px;
+        padding: 1rem;
+    }
+    
+    .card-hover-overlay {
+        padding: 1rem;
+    }
+    
+    .card-hover-overlay h5 {
+        font-size: 1.1rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .card-hover-overlay p {
+        font-size: 0.8rem;
+        margin-bottom: 0.6rem;
+    }
+    
+    .age-badge {
+        padding: 0.4rem 0.8rem;
+        margin-bottom: 0.8rem;
+    }
+    
+    .age-range {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .age-group-image-container {
+        height: 250px;
+    }
+    
+    .card-overlay {
+        margin-top: 150px;
+        padding: 0.8rem;
+    }
+    
+    .card-hover-overlay {
+        padding: 0.8rem;
+    }
+    
+    .card-hover-overlay h5 {
+        font-size: 1rem;
+        margin-bottom: 0.6rem;
+    }
+    
+    .card-hover-overlay p {
+        font-size: 0.75rem;
+        margin-bottom: 0.5rem;
+        line-height: 1.3;
+    }
+    
+    .age-badge {
+        padding: 0.3rem 0.6rem;
+        margin-bottom: 0.6rem;
+    }
+    
+    .age-range {
+        font-size: 0.75rem;
+    }
+}
+
+/* iPhone specific optimizations */
+@media (max-width: 414px) {
+    .age-group-image-container {
+        height: 220px;
+    }
+    
+    .card-overlay {
+        margin-top: 120px;
+        padding: 0.6rem;
+    }
+    
+    .card-hover-overlay {
+        padding: 0.6rem;
+    }
+    
+    .card-hover-overlay h5 {
+        font-size: 0.95rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .card-hover-overlay p {
+        font-size: 0.7rem;
+        margin-bottom: 0.4rem;
+        line-height: 1.2;
+    }
+    
+    .age-badge {
+        padding: 0.25rem 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    .age-range {
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 375px) {
+    .age-group-image-container {
+        height: 200px;
+    }
+    
+    .card-overlay {
+        margin-top: 100px;
+        padding: 0.5rem;
+    }
+    
+    .card-hover-overlay {
+        padding: 0.5rem;
+    }
+    
+    .card-hover-overlay h5 {
+        font-size: 0.9rem;
+        margin-bottom: 0.4rem;
+    }
+    
+    .card-hover-overlay p {
+        font-size: 0.65rem;
+        margin-bottom: 0.3rem;
+        line-height: 1.1;
+    }
+    
+    .age-badge {
+        padding: 0.2rem 0.4rem;
+        margin-bottom: 0.4rem;
+    }
+    
+    .age-range {
+        font-size: 0.65rem;
+    }
 }
 
 .blurred-bg {
@@ -1052,6 +1373,55 @@ h1, h2 {
     display: block;
     width: 100%;
     height: auto;
+}
+
+/* Age Groups Section Responsive */
+#age-groups {
+    padding: 2rem 0;
+}
+
+#age-groups .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+@media (max-width: 768px) {
+    #age-groups {
+        padding: 1.5rem 0;
+    }
+    
+    #age-groups .container {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    
+    #age-groups .row {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    #age-groups .col-md-6 {
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    #age-groups {
+        padding: 1rem 0;
+    }
+    
+    #age-groups .container {
+        padding-left: 0.25rem;
+        padding-right: 0.25rem;
+    }
+    
+    #age-groups .col-md-6 {
+        padding-left: 0.25rem;
+        padding-right: 0.25rem;
+        margin-bottom: 0.8rem;
+    }
 }
 
 /* Contact Section */
