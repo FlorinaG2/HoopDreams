@@ -105,7 +105,6 @@
             </a>
 
             <div class="popup-overlay" id="popupOverlay">
-                <button id="closeCoachPopup" class="popup-close-btn" aria-label="Închide">&times;</button>
                 <div class="modal-grid" id="popupContent">
                     <a href="/Coaches/AlexHoza">
                         <img src="/Images/AlexCoach.jpg"
@@ -265,7 +264,6 @@
     const popupOverlay = document.getElementById("popupOverlay");
     const popupContent = document.getElementById("popupContent");
     const trigger = document.getElementById("coachTrigger");
-    const closeCoachPopupBtn = document.getElementById("closeCoachPopup");
 
     // Show popup on trigger click
     trigger.addEventListener("click", () => {
@@ -282,16 +280,6 @@
             popupOverlay.style.zIndex = "1";
         }
     });
-
-    // Hide popup on X click
-    if (closeCoachPopupBtn) {
-        closeCoachPopupBtn.addEventListener("click", (e) => {
-            e.stopPropagation();
-            popupOverlay.style.opacity = "0";
-            popupOverlay.style.pointerEvents = "none";
-            popupOverlay.style.zIndex = "1";
-        });
-    }
 
     // Terms and Conditions popup functionality
     document.addEventListener('DOMContentLoaded', function () {
